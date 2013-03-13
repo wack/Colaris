@@ -1,4 +1,17 @@
 Colaris::Application.routes.draw do
+
+  devise_for :user, :controllers => {:registrations => "registrations"}
+
+  resource :profile
+
+  get "pages/home"
+
+  get 'about' => 'pages#about'
+
+  get "contact_us" => "pages#contact_us"
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +61,7 @@ Colaris::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => 'pages#home'
 
   # See how all your routes lay out with "rake routes"
 

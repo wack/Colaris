@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Colaris</title>
+  <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+  <title>Colaris Consulting</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<%= render 'layouts/navbar' %>
+<% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class:"alert alert-#{name}") %>
+<%end %>
+<div class="container">
+    <%= yield %>
+
+    <%= render 'layouts/footer' %>
+</div>
+
 
 </body>
 </html>
